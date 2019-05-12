@@ -1,4 +1,4 @@
-package com.studentenroll.studentenrollment.Service;
+package com.studentenroll.studentenrollment.service;
 
 import com.studentenroll.studentenrollment.entity.Student;
 import com.studentenroll.studentenrollment.repository.StudentRepository;
