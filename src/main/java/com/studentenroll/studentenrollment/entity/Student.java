@@ -1,5 +1,6 @@
 package com.studentenroll.studentenrollment.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,9 +18,10 @@ public class Student {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private int id;
 
-
+  @Size(min = 3, max = 30)
   private String firstName;
 
+  @Size(min = 3, max = 30)
   private String lastName;
 
   @NotBlank
@@ -33,5 +35,7 @@ public class Student {
 
   @NotBlank
   private String section;
+
+
 
 }

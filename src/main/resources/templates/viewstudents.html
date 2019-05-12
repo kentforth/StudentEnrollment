@@ -10,6 +10,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <h2 class="header-color">Student List</h2>
@@ -17,14 +18,13 @@
 <div class="container">
     <form:form>
 
-        <a  href="/enroll"><h2>Enroll New Student</h2></a>
-
+        <a href="/enroll" class="btn btn-success btn-large mb-3 mt-4"><i class="fa fa-user-plus"></i> Enroll New Student</a>
     <table class="table table-bordered table-dark">
 
         </thead>
         <tbody>
             <tr>
-                <th scope="col-md-3.5" >ID</th>
+                <th scope="col" >ID</th>
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
                 <th scope="col">Gender</th>

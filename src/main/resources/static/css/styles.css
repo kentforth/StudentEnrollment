@@ -7,4 +7,24 @@ body {
     color: #343A40;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
+
+.fa-user-plus {
+    font-size: 2rem;
+}
+
+.error{
+    color: red;
+    font-size: 15px;
+}
+
+.my-custom-container {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+@media (min-width: 1200px) {
+    .my-custom-container{
+        width:700px;
+    }}
+
