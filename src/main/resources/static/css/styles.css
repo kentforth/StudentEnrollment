@@ -3,6 +3,10 @@ body {
     background-size: cover;
 }
 
+.jumbotron {
+    background-color: transparent;
+}
+
 .header-color {
     color: #343A40;
     display: flex;
@@ -21,6 +25,7 @@ body {
 
 .my-custom-container {
     background-color: rgba(255, 255, 255, 0.5);
+
 }
 
 @media (min-width: 1200px) {
