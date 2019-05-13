@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -49,8 +50,16 @@ public class MainController {
       studentService.save(student);
       return "redirect:/";
 
+  }
+
+  @GetMapping("/deletestudent/{id}")
+  public ModelAndView delete(@PathVariable int id) {
+    Student student = studentService.findOne(id);
+    studentService.delete(student);
+    return new ModelAndView("redirect:/");
 
   }
+
 
 //  populate combobox with countries
   @ModelAttribute("countries")

@@ -1,6 +1,5 @@
 package com.studentenroll.studentenrollment.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -35,7 +34,5 @@ public class Student {
 
   @NotBlank
   private String section;
-
-
 
 }

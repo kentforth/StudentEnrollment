@@ -35,8 +35,8 @@
                 <th scope="col">Delete</th>
             </tr>
 
-            <tr th:each="student : ${list}">
-                <td th:text="${student.id}"></td>
+            <tr th:each="student, iStat : ${list}">
+                <td th:text="${iStat.index + 1}"></td>
                 <td th:text="${student.firstName}"></td>
                 <td th:text="${student.lastName}"></td>
                 <td th:text="${student.gender}"></td>
