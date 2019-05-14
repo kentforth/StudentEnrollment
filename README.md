@@ -50,8 +50,4 @@ spring.jpa.hibernate.ddl-auto = create
 to this:
 ```
 spring.jpa.hibernate.ddl-auto = update
-<<<<<<< HEAD
-```
-=======
-```
->>>>>>> 930f05bbfe98b4284c8648aae0e61ca15cab124d
+
