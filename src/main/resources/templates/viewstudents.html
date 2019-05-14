@@ -8,54 +8,79 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <h2 class="header-color">Student List</h2>
 
-<div class="container">
-    <form:form>
+        <div class="container">
+            <form:form>
 
-        <a href="/enroll" class="btn btn-success btn-large mb-3 mt-4"><i class="fa fa-user-plus"></i> Enroll New Student</a>
-    <table class="table table-bordered table-dark">
+                <div class="button-block">
+                    <div class="enroll">
 
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="col" >ID</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Gender</th>
-                <th scope="col">Email</th>
-                <th scope="col">Section</th>
-                <th scope="col">Country</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
-            </tr>
+                        <a href="/enroll" class="btn btn-success btn-large mb-3 mt-4"><i class="fa fa-user-plus"></i> Enroll
+                            New Student</a>
+                    </div>
+                    <div class="delete-student">
+                        <a th:href="@{'/deleteall'}" class="btn btn-danger btn-large mb-3 mt-4"><i
+                                class="fa fa-user-times"></i> Delete All Students</a>
+                    </div>
 
-            <tr th:each="student, iStat : ${list}">
-                <td th:text="${iStat.index + 1}"></td>
-                <td th:text="${student.firstName}"></td>
-                <td th:text="${student.lastName}"></td>
-                <td th:text="${student.gender}"></td>
-                <td th:text="${student.email}"></td>
-                <td th:text="${student.section}"></td>
-                <td th:text="${student.country}"></td>
+                </div>
+                <table class="table table-bordered table-dark">
 
-                <td><a th:href="@{'/editstudent/' + ${student.id}}">Edit</a></td>
-                <td><a th:href="@{'/deletestudent/' + ${student.id}}">Delete</a></td>
-            </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Section</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
 
-        </tbody>
-    </table>
-    </form:form>
-</div>
+                        <tr th:each="student, iStat : ${list}">
+                            <td th:text="${iStat.index + 1}"></td>
+                            <td th:text="${student.firstName}"></td>
+                            <td th:text="${student.lastName}"></td>
+                            <td th:text="${student.gender}"></td>
+                            <td th:text="${student.email}"></td>
+                            <td th:text="${student.section}"></td>
+                            <td th:text="${student.country}"></td>
+
+                            <td><a th:href="@{'/editstudent/' + ${student.id}}"
+                                   class="btn btn-info btn-sm active">
+                                <i class="fa fa-edit"></i> Edit</a></td>
+                            <td><a th:href="@{'/deletestudent/' + ${student.id}}"class="btn btn-danger btn-sm active">
+                                <i class="fa fa-user-times"></i> Delete</a></td>
+                            <!--<a href="/enroll" class="btn btn-success btn-large mb-3 mt-4"><i class="fa fa-user-plus"></i> Enroll
+                                New Student</a>-->
+                        </tr>
+
+                    </tbody>
+                </table>
+            </form:form>
+        </div>
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"></script>
     </body>
 </html>

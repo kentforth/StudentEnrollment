@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -52,12 +49,42 @@ public class MainController {
 
   }
 
+  @RequestMapping(value = "/editstudent/{id}")
+  public String edit(@PathVariable int id, ModelMap model) {
+    Student student = studentService.findOne(id);
+    model.addAttribute("student", student);
+    return "editstudent";
+  }
+
+  @PostMapping("/editsave")
+  public ModelAndView editSave(@ModelAttribute("student") Student std) {
+    Student student = studentService.findOne(std.getId());
+
+    student.setFirstName(std.getFirstName());
+    student.setLastName(std.getLastName());
+    student.setCountry(std.getCountry());
+    student.setEmail(std.getEmail());
+    student.setSection(std.getSection());
+    student.setGender(std.getGender());
+
+    studentService.save(student);
+    return new ModelAndView("redirect:/");
+
+
+  }
+
+
   @GetMapping("/deletestudent/{id}")
   public ModelAndView delete(@PathVariable int id) {
     Student student = studentService.findOne(id);
     studentService.delete(student);
     return new ModelAndView("redirect:/");
+  }
 
+  @RequestMapping(value="/deleteall",method=RequestMethod.GET)
+  public ModelAndView deleteAll() {
+    studentService.deleteAll();
+    return new ModelAndView("redirect:/");
   }
 
 
